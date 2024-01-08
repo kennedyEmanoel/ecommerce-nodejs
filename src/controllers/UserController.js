@@ -24,7 +24,7 @@ class UserController {
 
   async show(req, res) {
     try {
-      const user = await User.findByPk(req.params.id);
+      const user = await User.findByPk(req.userId);
 
       const { id, name, email } = user;
       return res.json({ id, name, email });
@@ -35,13 +35,7 @@ class UserController {
 
   async update(req, res) {
     try {
-      if (!req.params.id) {
-        return res.status(400).json({
-          errors: ['User does not exist'],
-        });
-      }
-
-      const user = await User.findByPk(req.params.id);
+      const user = await User.findByPk(req.userId);
 
       if (!user) {
         return res.status(400).json({
@@ -50,33 +44,18 @@ class UserController {
       }
 
       const newData = await user.update(req.body);
-      return res.json(newData);
+      const { id, name, email } = newData;
+      return res.json({ id, name, email });
     } catch (e) {
-      return res.json(null);
+      return res.status(400).json({
+        errors: e.errors.map((err) => err.message),
+      });
     }
-
-    // try {
-    //   const user = await User.findByPk(req.userId);
-
-    //   if (!user) {
-    //     return res.status(400).json({
-    //       errors: ['User does not exist'],
-    //     });
-    //   }
-
-    //   const newData = await user.update(req.body);
-    //   const { id, name, email } = newData;
-    //   return res.json({ id, name, email });
-    // } catch (e) {
-    //   return res.status(400).json({
-    //     errors: e.errors.map((err) => err.message),
-    //   });
-    // }
   }
 
   async delete(req, res) {
     try {
-      const user = await User.findByPk(req.params.id);// req.userId
+      const user = await User.findByPk(req.userId);
 
       if (!user) {
         return res.status(400).json({
