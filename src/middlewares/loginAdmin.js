@@ -13,7 +13,7 @@ export default async (req, res, next) => {
   const [, token] = authorization.split(' ');
 
   try {
-    const data = jwt.verify(token, process.env.TOKEN_SECRET);
+    const data = jwt.verify(token, process.env.TOKEN_ADMIN);
     const { id, email } = data;
 
     const user = await User.findOne({
@@ -29,8 +29,8 @@ export default async (req, res, next) => {
       });
     }
 
-    req.userId = id;
-    req.userEmail = email;
+    req.adminId = id;
+    req.adminEmail = email;
     return next();
   } catch (e) {
     return res.status(401).json({
