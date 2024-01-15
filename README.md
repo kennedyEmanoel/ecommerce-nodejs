@@ -5,6 +5,8 @@ Este projeto tem como objetivo ser um sistema de comércio eletrônico robusto e
 # Tecnologias utilizadas:
 
 . Express js em Node js.
+
 . Json Web Token(JWT) para autenticação segura e controle de acesso.
+
 . Bcrypt js usado para criptografar as senhas.
 
