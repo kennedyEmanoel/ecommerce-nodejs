@@ -1,9 +1,9 @@
 import Sequelize from 'sequelize';
 import databaseConfig from '../config/database';
 import User from '../models/User';
-import Admin from '../models/Admin';
+import Product from '../models/Product';
 
-const models = [User, Admin];
+const models = [User, Product];
 
 const connection = new Sequelize(databaseConfig);
 

@@ -24,10 +24,6 @@ export default class Product extends Model {
         type: Sequelize.FLOAT,
         defaultValue: 1,
       },
-      amount: {
-        type: Sequelize.INTEGER,
-        defaultValue: 1,
-      },
     }, {
       sequelize,
     });
