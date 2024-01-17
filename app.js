@@ -8,6 +8,7 @@ import express from 'express';
 import user from './src/routes/userRoutes';
 import tokenRoutes from './src/routes/tokenRoutes';
 import product from './src/routes/productRoutes';
+// import cart from './src/routes/cartRoutes';
 
 class App {
   constructor() {
@@ -25,6 +26,7 @@ class App {
     this.app.use('/users/', user);
     this.app.use('/products/', product);
     this.app.use('/tokens/', tokenRoutes);
+    // this.app.use('/cart/', cart);
   }
 }
 
