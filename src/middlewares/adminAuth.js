@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import User from '../models/User';
+import Admin from '../models/Admin';
 
 export default async (req, res, next) => {
   const { authorization } = req.headers;
@@ -16,16 +16,16 @@ export default async (req, res, next) => {
     const data = jwt.verify(token, process.env.TOKEN_ADMIN);
     const { id, email } = data;
 
-    const user = await User.findOne({
+    const admin = await Admin.findOne({
       where: {
         id,
         email,
       },
     });
 
-    if (!user) {
+    if (!admin) {
       return res.status(401).json({
-        errors: ['Invalid user'],
+        errors: ['Invalid admin'],
       });
     }
 
