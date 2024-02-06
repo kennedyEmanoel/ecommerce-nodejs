@@ -10,7 +10,6 @@ import cors from 'cors';
 import user from './src/routes/userRoutes';
 import tokenRoutes from './src/routes/tokenRoutes';
 import product from './src/routes/productRoutes';
-// import cart from './routes/cartRoutes';
 
 const whiteList = [
   'http://localhost:3000',
