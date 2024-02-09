@@ -42,7 +42,6 @@ class App {
     this.app.use('/users/', user);
     this.app.use('/products/', product);
     this.app.use('/tokens/', tokenRoutes);
-    // this.app.use('/cart/', cart);
   }
 }
 

@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import productController from '../controllers/ProductController';
+// import userAuth from '../middlewares/userAuth';
 
 const router = new Router();
 

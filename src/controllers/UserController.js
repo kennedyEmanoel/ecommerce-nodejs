@@ -4,18 +4,26 @@ class UserController {
   async store(req, res) {
     try {
       const newUser = await User.create(req.body);
-      const { id, name, email } = newUser;
-      return res.json({ id, name, email });
-    } catch (e) {
-      return res.status(400).json({
-        errors: e.errors.map((err) => err.message),
+      const {
+        id, name, email, role,
+      } = newUser;
+      console.log(newUser);
+      return res.json({
+        id, name, email, role,
       });
+    } catch (e) {
+      if (e.errors) {
+        return res.status(400).json({
+          errors: e.errors.map((err) => err.message),
+        });
+      }
+      return res.status(500).json({ error: 'Internal Server Error' });
     }
   }
 
   async index(req, res) {
     try {
-      const users = await User.findAll({ attributes: ['id', 'name', 'email'] });
+      const users = await User.findAll({ attributes: ['id', 'name', 'email', 'role'] });
       return res.json(users);
     } catch (e) {
       return res.json(null);
@@ -26,8 +34,12 @@ class UserController {
     try {
       const user = await User.findByPk(req.userId);
 
-      const { id, name, email } = user;
-      return res.json({ id, name, email });
+      const {
+        id, name, email, role,
+      } = user;
+      return res.json({
+        id, name, email, role,
+      });
     } catch (e) {
       return res.json(null);
     }

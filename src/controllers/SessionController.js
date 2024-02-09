@@ -25,7 +25,16 @@ class TokenController {
       });
     }
 
-    const { id } = user;
+    const { id, role } = user;
+
+    if (role === 'admin') {
+      const token = jwt.sign({ id, email }, process.env.TOKEN_ADMIN, {
+        expiresIn: process.env.TOKEN_EXPIRATION,
+      });
+
+      return res.json({ token, user: { name: user.name, id, email } });
+    }
+
     const token = jwt.sign({ id, email }, process.env.TOKEN_SECRET, {
       expiresIn: process.env.TOKEN_EXPIRATION,
     });
