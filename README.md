@@ -1,12 +1,12 @@
 # Ecommerce
 
-Este projeto tem como objetivo ser um sistema de comércio eletrônico, utilizando tecnologias como Express.js para o backend, Node.js como ambiente  de execução
+This project aims to be a simple e-commerce system, using technologies such as Express.js and Node.js for the backend and react for the frontend
 
-# Tecnologias utilizadas:
+# Technologies used:
 
-. Express js em Node js.
+. Express js and Node js.
 
-. Json Web Token(JWT) para autenticação segura e controle de acesso.
+. Json Web Token(JWT) for secure authentication and access control.
 
-. Bcrypt js usado para criptografar as senhas.
+. Bcrypt js used to encrypt the passwords.
 
