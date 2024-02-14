@@ -26,20 +26,31 @@ class TokenController {
     }
 
     const { id, role } = user;
+    console.log(role);
 
     if (role === 'admin') {
-      const token = jwt.sign({ id, email }, process.env.TOKEN_ADMIN, {
+      const token = jwt.sign({ id, email, role: user.role }, process.env.TOKEN_ADMIN, {
         expiresIn: process.env.TOKEN_EXPIRATION,
       });
 
-      return res.json({ token, user: { name: user.name, id, email } });
+      return res.json({
+        token,
+        user: {
+          name: user.name, id, email, role,
+        },
+      });
     }
 
-    const token = jwt.sign({ id, email }, process.env.TOKEN_SECRET, {
+    const token = jwt.sign({ id, email, role: user.role }, process.env.TOKEN_SECRET, {
       expiresIn: process.env.TOKEN_EXPIRATION,
     });
 
-    return res.json({ token, user: { name: user.name, id, email } });
+    return res.json({
+      token,
+      user: {
+        name: user.name, id, email, role,
+      },
+    });
   }
 }
 

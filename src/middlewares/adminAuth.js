@@ -14,23 +14,26 @@ export default async (req, res, next) => {
 
   try {
     const data = jwt.verify(token, process.env.TOKEN_ADMIN);
-    const { id, email } = data;
+    const { id, email, role } = data;
+    console.log(role);
 
-    const user = await User.findOne({
-      where: {
-        id,
-        email,
-      },
-    });
-
-    if (!user) {
-      return res.status(401).json({
-        errors: ['Invalid user'],
+    if (role === 'admin') {
+      const user = await User.findOne({
+        where: {
+          id,
+          email,
+        },
       });
-    }
 
-    req.userId = id;
-    req.userEmail = email;
+      if (!user) {
+        return res.status(401).json({
+          errors: ['Invalid user'],
+        });
+      }
+
+      req.userId = id;
+      req.userEmail = email;
+    }
     return next();
   } catch (e) {
     return res.status(401).json({
