@@ -5,7 +5,6 @@ import CartController from '../controllers/CartController';
 
 const router = new Router();
 
-// create Cart
 router.post('/', CartController.store);
 
 router.get('/', CartController.index);
