@@ -10,6 +10,7 @@ import cors from 'cors';
 import user from './src/routes/userRoutes';
 import tokenRoutes from './src/routes/tokenRoutes';
 import product from './src/routes/productRoutes';
+import cart from './src/routes/cartRoutes';
 
 const whiteList = [
   'http://localhost:3000',
@@ -41,6 +42,7 @@ class App {
   routes() {
     this.app.use('/users/', user);
     this.app.use('/products/', product);
+    this.app.use('/cart/', cart);
     this.app.use('/tokens/', tokenRoutes);
   }
 }

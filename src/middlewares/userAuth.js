@@ -17,7 +17,6 @@ export default async (req, res, next) => {
 
     try {
       userData = jwt.verify(token, process.env.TOKEN_SECRET);
-      console.log(userData);
 
       if (userData.role === 'user') {
         req.userId = userData.id;
@@ -27,7 +26,6 @@ export default async (req, res, next) => {
       }
     } catch (error) {
       const adminData = jwt.verify(token, process.env.TOKEN_ADMIN);
-      console.log(adminData);
 
       if (adminData.role === 'admin') {
         req.userId = adminData.id;

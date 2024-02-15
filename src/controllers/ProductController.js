@@ -5,10 +5,10 @@ class ProductController {
     try {
       const newProduct = await Product.create(req.body);
       const {
-        id, name, description, price,
+        id, category, description, price, image,
       } = newProduct;
       return res.json({
-        id, name, description, price,
+        id, category, description, price, image,
       });
     } catch (e) {
       return res.status(400).json({
@@ -19,7 +19,7 @@ class ProductController {
 
   async index(req, res) {
     try {
-      const product = await Product.findAll({ attributes: ['id', 'name', 'description', 'price'] });
+      const product = await Product.findAll({ attributes: ['id', 'category', 'description', 'price', 'image'] });
       console.log(product);
       return res.json(product);
     } catch (e) {
@@ -32,10 +32,10 @@ class ProductController {
       const product = await Product.findByPk(req.productId);
 
       const {
-        id, name, description, price,
+        id, category, description, price, image,
       } = product;
       return res.json({
-        id, name, description, price,
+        id, category, description, price, image,
       });
     } catch (e) {
       return res.json(null);
@@ -56,10 +56,10 @@ class ProductController {
       const newData = await product.update(req.body);
       console.log(newData);
       const {
-        id, name, description, price,
+        id, category, description, price, image,
       } = newData;
       return res.json({
-        id, name, description, price,
+        id, category, description, price, image,
       });
     } catch (e) {
       return res.status(400).json({

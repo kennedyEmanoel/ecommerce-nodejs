@@ -15,7 +15,6 @@ export default async (req, res, next) => {
   try {
     const data = jwt.verify(token, process.env.TOKEN_ADMIN);
     const { id, email, role } = data;
-    console.log(role);
 
     if (role === 'admin') {
       const user = await User.findOne({

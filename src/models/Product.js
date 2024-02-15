@@ -1,14 +1,11 @@
 import Sequelize, { Model } from 'sequelize';
 
-export default class Product extends Model {
+export default class Products extends Model {
   static init(sequelize) {
     super.init({
-      name: {
+      category: {
         type: Sequelize.STRING,
         defaultValue: '',
-        unique: {
-          msg: 'Product already exists',
-        },
       },
       description: {
         type: Sequelize.STRING,
@@ -22,7 +19,11 @@ export default class Product extends Model {
       },
       price: {
         type: Sequelize.FLOAT,
-        defaultValue: 1,
+        defaultValue: 0,
+      },
+      image: {
+        type: Sequelize.STRING,
+        allowNull: true,
       },
     }, {
       sequelize,

@@ -6,7 +6,7 @@ module.exports = {
       autoIncrement: true,
       primaryKey: true,
     },
-    name: {
+    category: {
       type: Sequelize.STRING,
       allowNull: false,
     },
@@ -17,6 +17,10 @@ module.exports = {
     price: {
       type: Sequelize.FLOAT,
       allowNull: false,
+    },
+    image: {
+      type: Sequelize.STRING,
+      allowNull: true,
     },
     created_at: {
       type: Sequelize.DATE,
