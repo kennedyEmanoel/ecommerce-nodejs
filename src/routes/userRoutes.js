@@ -5,7 +5,7 @@ import adminAuth from '../middlewares/adminAuth';
 
 const router = new Router();
 
-router.get('/', userController.index);
+router.get('/', adminAuth, userController.index);
 
 router.get('/:id', userAuth, userController.show);
 
