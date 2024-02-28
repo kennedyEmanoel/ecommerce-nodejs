@@ -3,17 +3,21 @@ import Sequelize, { Model } from 'sequelize';
 export default class Cart extends Model {
   static init(sequelize) {
     super.init({
-      product_id: {
-        type: Sequelize.INTEGER,
-        validate: {
-          isInt: true,
-        },
-      },
       user_id: {
         type: Sequelize.INTEGER,
         validate: {
           isInt: true,
         },
+        references: 'users',
+        key: 'id',
+      },
+      product_id: {
+        type: Sequelize.INTEGER,
+        validate: {
+          isInt: true,
+        },
+        references: 'products',
+        key: 'id',
       },
       quantity: {
         type: Sequelize.INTEGER,
@@ -21,6 +25,7 @@ export default class Cart extends Model {
       },
     }, {
       sequelize,
+      modelName: 'Cart',
     });
     return this;
   }

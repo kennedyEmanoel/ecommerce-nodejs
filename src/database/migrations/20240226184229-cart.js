@@ -6,13 +6,25 @@ module.exports = {
       autoIncrement: true,
       primaryKey: true,
     },
-    product_id: {
-      type: Sequelize.INTEGER,
-      allowNull: false,
-    },
     user_id: {
       type: Sequelize.INTEGER,
       allowNull: false,
+      references: {
+        model: 'users',
+        key: 'id',
+      },
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE',
+    },
+    product_id: {
+      type: Sequelize.INTEGER,
+      allowNull: false,
+      references: {
+        model: 'products',
+        key: 'id',
+      },
+      onDelete: 'CASCADE',
+      onUpdate: 'CASCADE',
     },
     quantity: {
       type: Sequelize.INTEGER,

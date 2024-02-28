@@ -10,7 +10,7 @@ export default class User extends Model {
         validate: {
           len: {
             args: [3, 255],
-            msg: 'Name field must be between 3 and 255 characters',
+            msg: 'Name field must be between 3 and 255 characters.',
           },
         },
       },
@@ -52,6 +52,7 @@ export default class User extends Model {
       },
     }, {
       sequelize,
+      modelName: 'User',
     });
 
     this.addHook('beforeSave', async (user) => {

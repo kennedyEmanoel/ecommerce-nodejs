@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon server.js",
-    "vercel-build": "npx sequelize migrate deploy"
+    "dev": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
@@ -27,7 +26,7 @@
     "helmet": "^7.1.0",
     "jsonwebtoken": "^9.0.2",
     "mariadb": "^3.2.3",
-    "sequelize": "^6.6.2",
+    "sequelize": "^6.37.1",
     "yup": "^1.3.3"
   }
 }
