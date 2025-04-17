@@ -1,12 +1,14 @@
 # Ecommerce
+Este projeto tem como objetivo desenvolver um sistema de e-commerce simples, com funcionalidades básicas de autenticação, controle de usuários e gerenciamento de produtos.
 
-This project aims to be a simple e-commerce system, using technologies such as Express.js and Node.js for the backend and react for the frontend
+A aplicação utiliza Node.js como ambiente de execução no backend, com o framework Express.js para criação da API, e React no frontend para a construção da interface do usuário.
 
-# Technologies used:
+# Tecnologias utilizadas:
+Node.js e Express.js no backend
 
-. Express js and Node js.
+React no frontend
 
-. Json Web Token(JWT) for secure authentication and access control.
+JSON Web Token (JWT) para autenticação segura e controle de acesso
 
-. Bcrypt js used to encrypt the passwords.
+Bcrypt.js para criptografia de senhas
 
